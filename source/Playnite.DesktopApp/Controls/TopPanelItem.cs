@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Controls;
 
 namespace Playnite.DesktopApp.Controls
@@ -44,6 +45,9 @@ namespace Playnite.DesktopApp.Controls
                 converter: new BooleanToVisibilityConverter());
             BindingTools.SetBinding(this,
                 ContentPresenter.ToolTipProperty,
+                nameof(TopPanelWrapperItem.Title));
+            BindingTools.SetBinding(this,
+                AutomationProperties.NameProperty,
                 nameof(TopPanelWrapperItem.Title));
         }
     }

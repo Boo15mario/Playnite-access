@@ -1,11 +1,13 @@
 ﻿using Playnite.Common;
 using Playnite.DesktopApp.ViewModels;
+using Playnite.SDK;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -96,6 +98,8 @@ namespace Playnite.DesktopApp.Controls
             TextInputText = Template.FindName("PART_TextInpuText", this) as TextBox;
             if (TextInputText != null)
             {
+                var automationName = AutomationProperties.GetName(this);
+                AutomationProperties.SetName(TextInputText, automationName.IsNullOrEmpty() ? LOC.SearchLabel.GetLocalized() : automationName);
                 TextInputText.TextChanged += TextFilter_TextChanged;
                 TextInputText.KeyUp += TextFilter_KeyUp;
                 TextInputText.GotFocus += TextInputText_GotFocus;

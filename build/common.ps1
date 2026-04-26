@@ -51,18 +51,31 @@ function global:Invoke-Nuget()
 
 function global:Get-MsBuildPath()
 {
-    $VSWHERE_CMD = "vswhere"
-
-    if (-not (Get-Command -Name $VSWHERE_CMD -Type Application -ErrorAction Ignore))
+    $vswhereCommand = Get-Command -Name "vswhere" -Type Application -ErrorAction Ignore
+    if ($vswhereCommand)
     {
-        $VSWHERE_CMD = "..\source\packages\vswhere.*\tools\vswhere.exe"
-        if (-not (Get-Command -Name $VSWHERE_CMD -Type Application -ErrorAction Ignore))
+        $VSWHERE_CMD = $vswhereCommand.Source
+    }
+    else
+    {
+        $VSWHERE_CMD = Join-Path ${env:ProgramFiles(x86)} "Microsoft Visual Studio\Installer\vswhere.exe"
+        if (-not (Test-Path $VSWHERE_CMD))
         {
-            Invoke-Nuget "install vswhere -SolutionDirectory `"$solutionDir`"" | Out-Null
+            $VSWHERE_CMD = Resolve-Path "..\source\packages\vswhere.*\tools\vswhere.exe" -ErrorAction Ignore | Select-Object -First 1 -ExpandProperty Path
+            if (-not $VSWHERE_CMD)
+            {
+                Invoke-Nuget "install vswhere -SolutionDirectory `"$solutionDir`"" | Out-Null
+                $VSWHERE_CMD = Resolve-Path "..\source\packages\vswhere.*\tools\vswhere.exe" -ErrorAction Ignore | Select-Object -First 1 -ExpandProperty Path
+            }
         }
     }
 
-    $path = & $VSWHERE_CMD -latest -requires Microsoft.Component.MSBuild -find "MSBuild\**\Bin\MSBuild.exe" -latest | Select-Object -First 1
+    if (-not $VSWHERE_CMD)
+    {
+        throw "vswhere not found."
+    }
+
+    $path = & $VSWHERE_CMD -latest -products * -requires Microsoft.Component.MSBuild -find "MSBuild\**\Bin\MSBuild.exe" -latest | Select-Object -First 1
     if ($path -and (Test-Path $path))
     {
         return $path

@@ -20,7 +20,7 @@
         <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" />
     </controls:WindowBase.Resources>
 
-    <Grid FocusManager.FocusedElement="{Binding ElementName=ButtonNext}">
+    <Grid FocusManager.FocusedElement="{Binding ElementName=WizardPageIntro}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
@@ -48,7 +48,9 @@
 
             <!-- Intro -->
             <TabItem Visibility="Collapsed">
-                <DockPanel LastChildFill="False" Margin="20">
+                <DockPanel x:Name="WizardPageIntro" LastChildFill="False" Margin="20" Focusable="True"
+                           AutomationProperties.Name="{DynamicResource LOCWelcomeLabel}"
+                           AutomationProperties.HelpText="{DynamicResource LOCFirstIntro}">
                     <TextBlock Text="{DynamicResource LOCWelcomeLabel}" VerticalAlignment="Center" FontSize="16" DockPanel.Dock="Top"/>
                     <TextBlock Text="{DynamicResource LOCFirstIntro}" 
                             TextWrapping="Wrap" DockPanel.Dock="Top" Margin="0,20,0,0"/>
@@ -57,11 +59,14 @@
             
             <!-- Library Selection -->
             <TabItem Visibility="Collapsed">
-                <DockPanel Margin="20" LastChildFill="False">
+                <DockPanel x:Name="WizardPageLibraries" Margin="20" LastChildFill="False" Focusable="True"
+                           AutomationProperties.Name="{DynamicResource LOCFirstExternalTitle}"
+                           AutomationProperties.HelpText="{DynamicResource LOCFirstImportIntroduction}">
                     <TextBlock Text="{DynamicResource LOCFirstExternalTitle}" VerticalAlignment="Center" FontSize="16" DockPanel.Dock="Top"/>
                     <TextBlock Text="{DynamicResource LOCFirstImportIntroduction}" TextWrapping="Wrap" DockPanel.Dock="Top" Margin="0,20,0,20"/>
 
                     <ItemsControl ItemsSource="{Binding RecommendeLibrariesList}"
+                                  AutomationProperties.Name="{DynamicResource LOCFirstExternalTitle}"
                                   HorizontalAlignment="Stretch" VerticalAlignment="Top">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
@@ -80,7 +85,9 @@
 
             <!-- Libraries -->
             <TabItem Visibility="Collapsed">
-                <DockPanel>
+                <DockPanel x:Name="WizardPageLibrarySettings" Focusable="True"
+                           AutomationProperties.Name="{Binding SelectedLibraryPlugin.Name}"
+                           AutomationProperties.HelpText="{DynamicResource LOCMenuPlayniteSettingsTitle}">
                     <StackPanel Orientation="Horizontal" Margin="20" DockPanel.Dock="Top">
                         <Image Source="{Binding SelectedLibraryPlugin.Icon}" RenderOptions.BitmapScalingMode="Fant"
                                Width="32" Margin="0,0,10,0" />
@@ -94,7 +101,9 @@
 
             <!-- Finish -->
             <TabItem Header="Done" Visibility="Collapsed" Foreground="{StaticResource TextBrush}">
-                <DockPanel LastChildFill="False" Margin="20">
+                <DockPanel x:Name="WizardPageFinish" LastChildFill="False" Margin="20" Focusable="True"
+                           AutomationProperties.Name="{DynamicResource LOCFirstConfigFinishedTitle}"
+                           AutomationProperties.HelpText="{DynamicResource LOCFirstConfigFinishedText}">
                     <TextBlock Text="{DynamicResource LOCFirstConfigFinishedTitle}" VerticalAlignment="Center" FontSize="16" DockPanel.Dock="Top"/>
                     <TextBlock Text="{DynamicResource LOCFirstConfigFinishedText}" 
                                TextWrapping="Wrap" Margin="0,20,0,0" DockPanel.Dock="Top"/>

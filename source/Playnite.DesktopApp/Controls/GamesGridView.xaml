@@ -416,6 +416,7 @@
     </UserControl.Resources>
 
     <ListView x:Name="GridGames" SelectionMode="Extended" BorderThickness="0"
+              AutomationProperties.Name="{DynamicResource LOCLibrary}"
               DataContext="{Binding AppSettings.ViewSettings, RelativeSource={RelativeSource AncestorType=UserControl}}"
               ItemsSource="{Binding ItemsSource, RelativeSource={RelativeSource AncestorType=UserControl}}"
               VirtualizingPanel.VirtualizationMode="Recycling" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
@@ -439,6 +440,16 @@
         </ListView.InputBindings>
         <ListView.ItemContainerStyle>
             <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource {x:Type ListViewItem}}">
+                <Setter Property="AutomationProperties.Name" Value="{Binding DisplayName}" />
+                <Setter Property="AutomationProperties.HelpText">
+                    <Setter.Value>
+                        <MultiBinding StringFormat="{}Installed: {0}; Platform: {1}; Library: {2}">
+                            <Binding Path="IsInstalled" Converter="{StaticResource BoolToYesNoConverter}" />
+                            <Binding Path="Platforms" Converter="{StaticResource ListToStringConverter}" />
+                            <Binding Path="Library" />
+                        </MultiBinding>
+                    </Setter.Value>
+                </Setter>
                 <Setter Property="ContextMenu">
                     <Setter.Value>
                         <pc:GameMenu DataContext="{Binding Data.SelectedItems, Source={StaticResource GridGamesProxy}}"

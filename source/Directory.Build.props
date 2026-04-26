@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <!-- Playnite intentionally stays on LiteDB 4; see Database/Collections/ItemCollection.cs. -->
+    <NuGetAuditSuppress Include="https://github.com/advisories/GHSA-3x49-g6rc-c284" />
+  </ItemGroup>
+</Project>

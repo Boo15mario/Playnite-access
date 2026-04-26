@@ -112,7 +112,9 @@ namespace Playnite.Controls
                 switch (acc.Value)
                 {
                     case AccessibilityInterfaceOptions.Auto:
-                        return Computer.GetScreenReaderActive() ? base.OnCreateAutomationPeer() : emptyAutomationPeer;
+                        return Computer.GetScreenReaderActive() || PlayniteApplication.Current?.AppSettings?.FirstTimeWizardComplete == false
+                            ? base.OnCreateAutomationPeer()
+                            : emptyAutomationPeer;
                     case AccessibilityInterfaceOptions.AlwaysOn:
                         return base.OnCreateAutomationPeer();
                     case AccessibilityInterfaceOptions.AlwaysOff:
