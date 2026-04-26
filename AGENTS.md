@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-Playnite is a .NET Framework 4.6.2 WPF solution rooted at `source/Playnite.sln`. Core shared code lives in `source/Playnite`, Desktop UI in `source/Playnite.DesktopApp`, Fullscreen UI in `source/Playnite.FullscreenApp`, and public SDK types in `source/PlayniteSDK`. Tests and test fixtures live under `source/Tests`. Build automation is in `build`, binary/reference assets are in `references`, UI/media assets are in `media`, and additional fixture data is in top-level `tests`.
+Playnite is a .NET Framework 4.6.2 WPF solution rooted at `source/Playnite.sln`. Core shared code lives in `source/Playnite`, Desktop UI in `source/Playnite.DesktopApp`, Fullscreen UI in `source/Playnite.FullscreenApp`, and public SDK types in `source/PlayniteSDK`. Tests and fixtures live under `source/Tests`. Build automation is in `build`; repository-wide MSBuild settings are in `source/Directory.Build.props` and `source/Directory.Build.targets`. Binary/reference assets are in `references`, UI/media assets are in `media`, and fixture data is in top-level `tests`.
 
 ## Build, Test, and Development Commands
 
@@ -24,7 +24,7 @@ Use Visual Studio 2022 Build Tools or Visual Studio 2022 for IDE work. The build
 
 ## Coding Style & Naming Conventions
 
-Use C# 7.3-compatible code unless the target project already allows otherwise. Follow existing WPF/XAML patterns and keep accessibility properties on meaningful controls when editing UI. Use PascalCase for public types, methods, and properties; camelCase for locals and private fields where existing files do. Preserve existing line endings and XML project-file style. `source/.editorconfig` disables selected IDE style suggestions; do not introduce broad formatter churn.
+Use C# 7.3-compatible code unless the target project already allows otherwise. Follow existing WPF/XAML patterns and keep accessibility properties on meaningful controls when editing UI. Use PascalCase for public types, methods, and properties; camelCase for locals and private fields where existing files do. Preserve existing XML project-file style. `source/.editorconfig` disables selected IDE style suggestions; do not introduce broad formatter churn.
 
 ## Testing Guidelines
 
@@ -36,4 +36,4 @@ Recent history uses short, imperative commit subjects such as `Fixed errors in R
 
 ## Security & Configuration Tips
 
-Do not commit generated build outputs from `build/Debug`, restored package folders, secrets, or local machine paths. Keep intentional dependency pins documented near the configuration that enforces them. For accessibility work, prefer upstream WPF/UI Automation fixes over tool-specific workarounds.
+Do not commit generated build outputs from `build/Debug`, restored package folders, secrets, or local machine paths. Keep intentional dependency pins and warning suppressions documented near the configuration that enforces them. For accessibility work, prefer upstream WPF/UI Automation fixes over tool-specific workarounds.
