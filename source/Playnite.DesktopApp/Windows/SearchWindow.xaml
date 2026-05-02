@@ -94,16 +94,19 @@
                           Command="{Binding SecondaryActionCommand}"
                           Content="{Binding SelectedSearchItem.SecondaryAction.Name}"
                           IsChecked="{Binding SecondaryAction.Selected, Mode=OneWay}"
-                          Visibility="{Binding SecondaryAction, Converter={StaticResource NullToVisibilityConverter}}"/>
+                          Visibility="{Binding SecondaryAction, Converter={StaticResource NullToVisibilityConverter}}"
+                          AutomationProperties.Name="{Binding SecondaryAction.Name}"/>
             <ToggleButton DockPanel.Dock="Right" Style="{DynamicResource SearchWindowActionButton}"
                           Command="{Binding PrimaryActionCommand}"
                           Content="{Binding SelectedSearchItem.PrimaryAction.Name}"
                           IsChecked="{Binding PrimaryAction.Selected, Mode=OneWay}"
-                          Visibility="{Binding PrimaryAction, Converter={StaticResource NullToVisibilityConverter}}"/>
+                          Visibility="{Binding PrimaryAction, Converter={StaticResource NullToVisibilityConverter}}"
+                          AutomationProperties.Name="{Binding PrimaryAction.Name}"/>
             <Grid DockPanel.Dock="Left" VerticalAlignment="Center">
                 <TextBox Text="{Binding SearchTerm, UpdateSourceTrigger=PropertyChanged}"
                          Style="{DynamicResource SearchWindowSearchBox}"
-                         Name="TextSearchBox">
+                         Name="TextSearchBox"
+                         AutomationProperties.Name="{DynamicResource LOCSearchLabel}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="PreviewKeyDown">
                             <i:InvokeCommandAction Command="{Binding TextBoxKeyDownCommand}" PassEventArgsToCommand="True" />
@@ -120,7 +123,8 @@
                 <ContentControl Focusable="False" Visibility="Collapsed" Template="{DynamicResource SearchWindowFilterNotification}"
                                 pbeh:AnimatedVisibility.Visibility="{Binding FilterHintVisible, Converter={pcon:BooleanToVisibilityConverter}}"
                                 pbeh:AnimatedVisibility.Collapsed="{StaticResource HintVisibilityOff}"
-                                Name="TextFilterHint" Content="{Binding FilterHint}"/>
+                                Name="TextFilterHint" Content="{Binding FilterHint}"
+                                AutomationProperties.Name="Search filter status"/>
             </Grid>
         </DockPanel>
 
@@ -135,7 +139,8 @@
                  Style="{DynamicResource SearchWindowList}"
                  SelectedItem="{Binding SelectedSearchItem, Mode=TwoWay}"
                  ItemsSource="{Binding SearchResults}"
-                 ItemTemplateSelector="{StaticResource SearchItemTemplateSelector}">
+                 ItemTemplateSelector="{StaticResource SearchItemTemplateSelector}"
+                 AutomationProperties.Name="Search results">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseDoubleClick" >
                     <i:InvokeCommandAction Command="{Binding PrimaryActionCommand}" />

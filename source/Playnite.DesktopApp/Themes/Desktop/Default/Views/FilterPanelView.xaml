@@ -71,24 +71,31 @@
                                 <Button Content="r" FontFamily="Marlett"
                                         Style="{StaticResource SimpleButton}"
                                         DockPanel.Dock="Right" Margin="0,0,5,0"
-                                        Name="PART_ButtonClose"/>
-                                <Button DockPanel.Dock="Left" Content="{StaticResource LOCClearFilters}"                                        
+                                        Name="PART_ButtonClose"
+                                        AutomationProperties.Name="{DynamicResource LOCCloseLabel}"/>
+                                <Button DockPanel.Dock="Left" Content="{StaticResource LOCClearFilters}"
                                         HorizontalAlignment="Left"
                                         Style="{StaticResource SimpleButton}"
-                                        Name="PART_ButtonClear"/>
+                                        Name="PART_ButtonClear"
+                                        AutomationProperties.Name="{DynamicResource LOCClearFilters}"/>
                             </DockPanel>
                             <DockPanel DockPanel.Dock="Top" Margin="8,0,6,5">
                                 <Button x:Name="PART_ButtonDeleteFilter"
-                                        Content="&#xec53;" Style="{DynamicResource FilterPresetButtonAction}" />
+                                        Content="&#xec53;" Style="{DynamicResource FilterPresetButtonAction}"
+                                        AutomationProperties.Name="Delete filter preset" />
                                 <Button x:Name="PART_ButtonRenameFilter"
-                                        Content="&#xec55;" Style="{DynamicResource FilterPresetButtonAction}"/>
+                                        Content="&#xec55;" Style="{DynamicResource FilterPresetButtonAction}"
+                                        AutomationProperties.Name="Rename filter preset"/>
                                 <Button x:Name="PART_ButtonSaveFilter"
-                                        Content="&#xee00;" Style="{DynamicResource FilterPresetButtonAction}" />
+                                        Content="&#xee00;" Style="{DynamicResource FilterPresetButtonAction}"
+                                        AutomationProperties.Name="{DynamicResource LOCFilterPresetSave}" />
                                 <ComboBox x:Name="PART_ComboFilterPresets"
-                                          DockPanel.Dock="Left" VerticalAlignment="Center" />
-                            </DockPanel>                            
+                                          DockPanel.Dock="Left" VerticalAlignment="Center"
+                                          AutomationProperties.Name="Filter presets" />
+                            </DockPanel>
                             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"
-                                      DockPanel.Dock="Top" Padding="0,0,0,15">
+                                      DockPanel.Dock="Top" Padding="0,0,0,15"
+                                      AutomationProperties.Name="{DynamicResource LOCFilters}">
                                 <StackPanel x:Name="PART_PanelItemsHost" />
                             </ScrollViewer>
                         </DockPanel>

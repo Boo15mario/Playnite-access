@@ -12,6 +12,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
@@ -36,6 +37,8 @@ namespace Playnite.DesktopApp.Controls.Views
         private ButtonBase ButtonRenameFilter;
         private ButtonBase ButtonSaveFilter;
         private ComboBox ComboFilterPresets;
+        private Label currentFilterLabel;
+        private string currentFilterName;
 
         static FilterPanel()
         {
@@ -254,7 +257,22 @@ namespace Playnite.DesktopApp.Controls.Views
                 fallBackValue: false,
                 converter: converter);
             elem.Content = ResourceProvider.GetString(text);
+            currentFilterLabel = elem;
+            currentFilterName = elem.Content?.ToString();
             PanelItemsHost.Children.Add(elem);
+        }
+
+        private void ApplyCurrentFilterAutomation(FrameworkElement elem)
+        {
+            if (!string.IsNullOrEmpty(currentFilterName))
+            {
+                AutomationProperties.SetName(elem, currentFilterName);
+            }
+
+            if (currentFilterLabel != null)
+            {
+                AutomationProperties.SetLabeledBy(elem, currentFilterLabel);
+            }
         }
 
         private void SetFilterSearchBoxFilter(string filterBinding)
@@ -272,6 +290,7 @@ namespace Playnite.DesktopApp.Controls.Views
                 filterBinding,
                 BindingMode.TwoWay,
                 delay: 100);
+            ApplyCurrentFilterAutomation(elem);
             PanelItemsHost.Children.Add(elem);
         }
 
@@ -294,6 +313,7 @@ namespace Playnite.DesktopApp.Controls.Views
                 filterBinding,
                 BindingMode.TwoWay);
             elem.IsFullTextEnabled = isFullext;
+            ApplyCurrentFilterAutomation(elem);
             PanelItemsHost.Children.Add(elem);
         }
 
@@ -312,6 +332,7 @@ namespace Playnite.DesktopApp.Controls.Views
                 mainModel.AppSettings.FilterSettings,
                 filterBinding,
                 BindingMode.TwoWay);
+            ApplyCurrentFilterAutomation(elem);
             PanelItemsHost.Children.Add(elem);
         }
 
@@ -333,6 +354,7 @@ namespace Playnite.DesktopApp.Controls.Views
                 mainModel.AppSettings.FilterSettings,
                 filterBinding,
                 BindingMode.TwoWay);
+            ApplyCurrentFilterAutomation(elem);
             PanelItemsHost.Children.Add(elem);
         }
     }

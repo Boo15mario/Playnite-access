@@ -220,7 +220,7 @@
                                 <Grid MaxWidth="600" MinWidth="300">
                                     <ProgressBar Name="PART_ProgressGlobal" />
                                     <TextBlock Name="PART_TextProgressText"
-                                               AutomationProperties.LiveSetting="Polite"
+                                               AutomationProperties.Name="{Binding Text, RelativeSource={RelativeSource Self}}"
                                                VerticalAlignment="Center" HorizontalAlignment="Center"
                                                Style="{DynamicResource BaseTextBlockStyle}" Margin="5,0,5,0" />
                                 </Grid>
