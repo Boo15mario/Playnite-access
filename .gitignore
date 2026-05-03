@@ -260,6 +260,9 @@ paket-files/
 # Visual Studio Code stuff
 .vscode/
 
+# Codex local state
+.codex
+
 build/nuget.exe
 build/PlayniteSetup.exe
 build/PlaynitePortable.zip
