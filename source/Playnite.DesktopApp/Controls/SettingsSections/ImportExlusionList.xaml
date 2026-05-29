@@ -15,7 +15,8 @@
         <DataGrid SelectionMode="Extended" ItemsSource="{Binding ImportExclusionList}"
                   CanUserAddRows="False" AutoGenerateColumns="False" CanUserResizeRows="False" CanUserSortColumns="True"   
                   GridLinesVisibility="None" BorderThickness="0"
-                  Name="ListImportExclusionList" DockPanel.Dock="Top">
+                  Name="ListImportExclusionList" DockPanel.Dock="Top"
+                  AutomationProperties.Name="{DynamicResource LOCSettingsImportExclusionList}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="{DynamicResource LOCNameLabel}" Binding="{Binding Name}" IsReadOnly="True" />
                 <DataGridTextColumn Header="{DynamicResource LOCGameId}" Binding="{Binding GameId}" IsReadOnly="True" />

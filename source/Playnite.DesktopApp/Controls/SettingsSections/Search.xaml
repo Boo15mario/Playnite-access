@@ -18,12 +18,14 @@
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
                     <TextBlock Text="{DynamicResource LOCSearchSettingsPrimaryAction}" VerticalAlignment="Center" Margin="0,0,15,0" />
                     <ComboBox pbeh:SelectorBehaviors.EnumSource="{x:Type p:GameSearchItemAction}"
+                              AutomationProperties.Name="{DynamicResource LOCSearchSettingsPrimaryAction}"
                               SelectedValue="{Binding Settings.PrimaryGameSearchItemAction}" />
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0,10,0,0">
                     <TextBlock Text="{DynamicResource LOCSearchSettingsSecondaryAction}" VerticalAlignment="Center" Margin="0,0,15,0" />
                     <ComboBox pbeh:SelectorBehaviors.EnumSource="{x:Type p:GameSearchItemAction}"
+                              AutomationProperties.Name="{DynamicResource LOCSearchSettingsSecondaryAction}"
                               SelectedValue="{Binding Settings.SecondaryGameSearchItemAction}" />
                 </StackPanel>
 
@@ -44,11 +46,13 @@
                     <TextBlock VerticalAlignment="Center" Margin="0,0,10,0"
                                Text="{DynamicResource LOCSearchSettingsSystemWideShortcut}"/>
                     <HotKeyBox Width="150" HorizontalAlignment="Left"
+                               AutomationProperties.Name="{DynamicResource LOCSearchSettingsSystemWideShortcut}"
                                Hotkey="{Binding Settings.SystemSearchHotkey}" />
                 </StackPanel>
 
                 <TextBlock Text="{DynamicResource LOCSearchSettingsSearchProviders}" DockPanel.Dock="Top" Margin="0,15,0,0"/>
                 <ListView DockPanel.Dock="Top" Margin="0,10,0,0"
+                          AutomationProperties.Name="{DynamicResource LOCSearchSettingsSearchProviders}"
                           ItemsSource="{Binding Searches}">
                     <ListView.View>
                         <GridView>
@@ -57,7 +61,8 @@
                             <GridViewColumn Header="{DynamicResource LOCSearchSettingsCustomKeyword}" Width="150">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBox Text="{Binding Keyword}" />
+                                        <TextBox Text="{Binding Keyword}"
+                                                 AutomationProperties.Name="{DynamicResource LOCSearchSettingsCustomKeyword}" />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>

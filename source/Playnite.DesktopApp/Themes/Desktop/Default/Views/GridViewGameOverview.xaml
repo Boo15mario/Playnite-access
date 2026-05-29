@@ -28,6 +28,7 @@
                                     Content="r" FontFamily="Marlett"
                                     Style="{DynamicResource SimpleButton}"
                                     Command="{MainViewModel CloseGameSideBarCommand}"
+                                    AutomationProperties.Name="{DynamicResource LOCCloseLabel}"
                                     DockPanel.Dock="Top" Margin="0,10,15,5" />
 
                             <TextBlock Text="{DynamicResource LOCErrorNoGameSelected}" 

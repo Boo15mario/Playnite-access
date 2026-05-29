@@ -46,6 +46,7 @@
                         Margin="5,0,0,0" DockPanel.Dock="Right"/>
                 <TextBox Text="{Binding AddonSearchText, UpdateSourceTrigger=PropertyChanged, Delay=500}"
                          pbeh:FocusBahaviors.OnVisibilityFocus="True"
+                         AutomationProperties.Name="{DynamicResource LOCSearchLabel}"
                          DockPanel.Dock="Left">
                     <TextBox.InputBindings>
                         <KeyBinding Command="{Binding SearchAddonCommand}" Key="Return" />
@@ -56,6 +57,7 @@
             <ListBox ItemsSource="{Binding OnlineAddonList}"
                      SelectedItem="{Binding SelectedOnlineAddon}"
                      Name="ListOnlineAddons" Grid.Column="0" Grid.Row="1"
+                     AutomationProperties.Name="Available add-ons"
                      VirtualizingPanel.IsVirtualizing="True"
                      VirtualizingPanel.VirtualizationMode="Recycling"
                      VirtualizingPanel.ScrollUnit="Pixel"
@@ -129,7 +131,8 @@
                         
                         <ComboBox MinWidth="100"
                                   ItemsSource="{Binding Data.AvailablePackages, Source={StaticResource RootDataContext}}"
-                                  SelectedValue="{Binding Data.SelectedInstallPackage, Source={StaticResource RootDataContext}}"                                  
+                                  SelectedValue="{Binding Data.SelectedInstallPackage, Source={StaticResource RootDataContext}}"
+                                  AutomationProperties.Name="{DynamicResource LOCVersionLabel}"
                                   DisplayMemberPath="Version" />
                     </StackPanel>
 

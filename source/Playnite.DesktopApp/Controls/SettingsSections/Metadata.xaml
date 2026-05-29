@@ -53,6 +53,7 @@
                     <TextBlock Text="{DynamicResource LOCSettingsPreferredAgeRatingOrg}" Margin="0,0,5,0" 
                                VerticalAlignment="Center"/>
                     <ComboBox SelectedValue="{Binding Settings.AgeRatingOrgPriority}"
+                              AutomationProperties.Name="{DynamicResource LOCSettingsPreferredAgeRatingOrg}"
                               ItemsSource="{Binding Source={StaticResource AgeRatingOrgValues}}" />
                 </StackPanel>
 
@@ -67,11 +68,14 @@
                 <GridEx ColumnCount="2" RowCount="3" AutoLayoutColumns="2" StarColumns="1"
                         Margin="10">
                     <TextBlock Margin="5" VerticalAlignment="Center" Text="{DynamicResource LOCSettingsWebImageSearchIconTerm}" />
-                    <TextBox Margin="5" Text="{Binding Settings.WebImageSarchIconTerm}" />
+                    <TextBox Margin="5" Text="{Binding Settings.WebImageSarchIconTerm}"
+                             AutomationProperties.Name="{DynamicResource LOCSettingsWebImageSearchIconTerm}" />
                     <TextBlock Margin="5" VerticalAlignment="Center" Text="{DynamicResource LOCSettingsWebImageSearchCoverTerm}" />
-                    <TextBox Margin="5" Text="{Binding Settings.WebImageSarchCoverTerm}" />
+                    <TextBox Margin="5" Text="{Binding Settings.WebImageSarchCoverTerm}"
+                             AutomationProperties.Name="{DynamicResource LOCSettingsWebImageSearchCoverTerm}" />
                     <TextBlock Margin="5" VerticalAlignment="Center" Text="{DynamicResource LOCSettingsWebImageSearchBackground}" />
-                    <TextBox Margin="5" Text="{Binding Settings.WebImageSarchBackgroundTerm}" />
+                    <TextBox Margin="5" Text="{Binding Settings.WebImageSarchBackgroundTerm}"
+                             AutomationProperties.Name="{DynamicResource LOCSettingsWebImageSearchBackground}" />
                 </GridEx>
                 <Button Content="{DynamicResource LOCMenuHelpTitle}"
                         Margin="15,10,0,0" HorizontalAlignment="Left"

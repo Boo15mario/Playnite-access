@@ -42,7 +42,8 @@
 
         <Border BorderThickness="0,1,0,0" BorderBrush="{DynamicResource WindowPanelSeparatorBrush}"
                 DockPanel.Dock="Left">
-            <TreeView MinWidth="250" BorderThickness="0">
+            <TreeView MinWidth="250" BorderThickness="0"
+                      AutomationProperties.Name="{DynamicResource LOCMenuAddons}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectedItemChanged" >
                         <prism:InvokeCommandAction Command="{Binding SectionChangedChangedCommand}" />

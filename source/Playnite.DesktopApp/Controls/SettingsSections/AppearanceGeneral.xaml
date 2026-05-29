@@ -29,6 +29,7 @@
                             Content="{DynamicResource LOCSettingsSkin}"
                             ContentStringFormat="{}{0} *"/>
             <ComboBox Margin="10,0,0,0" MinWidth="150"
+                    AutomationProperties.Name="{DynamicResource LOCSettingsSkin}"
                     ItemsSource="{Binding AvailableThemes}"
                     SelectedValue="{Binding Settings.Theme}"
                     SelectedValuePath="Id"
@@ -52,6 +53,7 @@
             <ContentControl Content="{DynamicResource LOCSettingsInterfaceFont}" VerticalAlignment="Center"
                             ContentStringFormat="{}{0} *" />
             <ComboBox ItemsSource="{Binding AvailableFonts}" Width="180" Margin="10,0,0,0"
+                      AutomationProperties.Name="{DynamicResource LOCSettingsInterfaceFont}"
                       SelectedValue="{Binding Settings.FontFamilyName}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
@@ -70,6 +72,7 @@
             <ContentControl Content="{DynamicResource LOCSettingsInterfaceMonoFont}" VerticalAlignment="Center"
                             ContentStringFormat="{}{0} *" />
             <ComboBox ItemsSource="{Binding AvailableFonts}" Width="180" Margin="10,0,0,0"
+                      AutomationProperties.Name="{DynamicResource LOCSettingsInterfaceMonoFont}"
                       SelectedValue="{Binding Settings.MonospaceFontFamilyName}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
@@ -97,6 +100,7 @@
             <Slider Minimum="0" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True"
                     Value="{Binding Settings.BackgroundImageBlurAmount}"
                     VerticalAlignment="Center" Margin="15,0,0,0" Width="200"
+                    AutomationProperties.Name="{DynamicResource LOCSettingsBlurWindowBackgrounImage}"
                     IsEnabled="{Binding Settings.BlurWindowBackgroundImage}" />
             <CheckBox IsChecked="{Binding Settings.HighQualityBackgroundBlur}"
                       IsEnabled="{Binding Settings.BlurWindowBackgroundImage}"
@@ -109,6 +113,7 @@
             <Slider Minimum="0" Maximum="1"
                     Value="{Binding Settings.BackgroundImageDarkAmount}"
                     VerticalAlignment="Center" Margin="15,0,0,0" Width="200"
+                    AutomationProperties.Name="{DynamicResource LOCSettingsDarkenWindowBackghrounImage}"
                     IsEnabled="{Binding Settings.DarkenWindowBackgroundImage}" />
         </StackPanel>
 

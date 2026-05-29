@@ -28,6 +28,7 @@
         </StackPanel>
 
         <ListView DockPanel.Dock="Top" Name="ListDevelExtensions"
+                  AutomationProperties.Name="{DynamicResource LOCSettingsExternalExtensions}"
                   ItemsSource="{Binding Source={StaticResource DevelExtenionsSource}}">
             <ListView.ItemContainerStyle>
                 <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource {x:Type ListViewItem}}">
@@ -46,7 +47,8 @@
                     <GridViewColumn Width="400" Header="{DynamicResource LOCPathLabel}">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <pctrls:PathSelectionBox Text="{Binding Item}" ShowDirectorySelector="True" />
+                                <pctrls:PathSelectionBox Text="{Binding Item}" ShowDirectorySelector="True"
+                                                         AutomationProperties.Name="{DynamicResource LOCPathLabel}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -54,6 +56,7 @@
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Button FontFamily="Marlett" Content="r"
+                                        AutomationProperties.Name="{DynamicResource LOCRemoveTitle}"
                                         Command="{Binding Data.RemoveDevelExtensionCommand, Source={StaticResource Proxy}}"
                                         CommandParameter="{Binding}" />
                             </DataTemplate>

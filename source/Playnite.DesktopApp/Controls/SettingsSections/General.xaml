@@ -35,6 +35,7 @@
                             ContentStringFormat="{}{0} *"
                             VerticalAlignment="Center" Margin="5,0,10,0" />
             <ComboBox Name="ComboLanguage" VerticalAlignment="Center"
+                      AutomationProperties.Name="{DynamicResource LOCLanguageSettingsLabel}"
                       SelectedValue="{Binding Settings.Language}"
                       SelectedValuePath="Id" DisplayMemberPath="DisplayString"
                       ItemsSource="{Binding AvailableLanguages}"/>
@@ -51,6 +52,7 @@
                        VerticalAlignment="Center" />
                 <ComboBox ToolTipService.InitialShowDelay="0" VerticalAlignment="Center"
                           ToolTip="{DynamicResource LOCSettingsClosePlaytimeNotif}"
+                          AutomationProperties.Name="{DynamicResource LOCSettingsAfterGameStart}"
                           SelectedValue="{Binding Settings.AfterLaunch}"
                           pbeh:SelectorBehaviors.EnumSource="{x:Type p:AfterLaunchOptions}"/>
             </StackPanel>
@@ -59,6 +61,7 @@
             <TextBlock Text="{DynamicResource LOCSettingsAfterGameClose}" Margin="0,0,5,0"
                        VerticalAlignment="Center" />
                 <ComboBox SelectedValue="{Binding Settings.AfterGameClose}"
+                          AutomationProperties.Name="{DynamicResource LOCSettingsAfterGameClose}"
                           pbeh:SelectorBehaviors.EnumSource="{x:Type p:AfterGameCloseOptions}"/>
         </StackPanel>
 
@@ -68,6 +71,7 @@
                     Content="{DynamicResource LOCSettingsShowTray}"
                     ContentStringFormat="{}{0} *" />
             <ComboBox Margin="5,0,0,0" VerticalAlignment="Center"
+                    AutomationProperties.Name="Tray icon"
                     ItemsSource="{Binding AvailableTrayIcons}"
                     SelectedValue="{Binding Settings.TrayIcon}"
                     SelectedValuePath="TrayIcon"
@@ -125,6 +129,7 @@
 
         <StackPanel Orientation="Horizontal" Margin="5,10,5,0">
             <ComboBox MinWidth="100" VerticalAlignment="Center"
+                  AutomationProperties.Name="{DynamicResource LOCSettingsPlaytimeImportMode}"
                   SelectedValue="{Binding Settings.PlaytimeImportMode}"
                   pbeh:SelectorBehaviors.EnumSource="{x:Type sdk:PlaytimeImportMode}" />
             <TextBlock Margin="20,0,0,0" VerticalAlignment="Center">

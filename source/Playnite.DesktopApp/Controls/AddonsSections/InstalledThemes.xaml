@@ -103,6 +103,7 @@
 
         <ListBox Grid.Column="0" Name="ListThemeList" SelectedIndex="0"
                  ScrollViewer.CanContentScroll="False"
+                 AutomationProperties.Name="{DynamicResource LOCThemes}"
                  ItemsSource="{Binding ActiveInstalledThemeList}">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem" BasedOn="{StaticResource {x:Type ListBoxItem}}">
