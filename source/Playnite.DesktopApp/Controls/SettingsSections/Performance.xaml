@@ -49,6 +49,7 @@
                     ToolTipService.InitialShowDelay="0">
             <TextBlock VerticalAlignment="Center" Text="{DynamicResource LOCSettingsImageScalerMode}" />
             <ComboBox Margin="10,0,0,0" MinWidth="100"
+                      AutomationProperties.Name="{DynamicResource LOCSettingsImageScalerMode}"
                       SelectedValue="{Binding Settings.ImageScalerMode}"
                       pbeh:SelectorBehaviors.EnumSource="{x:Type playnite:ImageLoadScaling}" />
         </StackPanel>

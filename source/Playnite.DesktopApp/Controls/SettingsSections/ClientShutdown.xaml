@@ -34,6 +34,7 @@
                        VerticalAlignment="Center"/>
             <pctrls:NullIntNumericBox MinValue="0" MaxValue="4096" Margin="10,0,0,0" Width="40"
                                    HorizontalAlignment="Left" VerticalAlignment="Center"
+                                   AutomationProperties.Name="{DynamicResource LOCSettingsAutoCloseGracePeriod}"
                                    Value="{Binding Settings.ClientAutoShutdown.GraceTimeout}"/>
         </StackPanel>
 
@@ -43,6 +44,7 @@
                        VerticalAlignment="Center"/>
             <pctrls:NullIntNumericBox MinValue="0" MaxValue="4096" Margin="10,0,0,0" Width="40"
                                    HorizontalAlignment="Left" VerticalAlignment="Center"
+                                   AutomationProperties.Name="{DynamicResource LOCSettingsAutoCloseMinimalSessionTime}"
                                    Value="{Binding Settings.ClientAutoShutdown.MinimalSessionTime}"/>
         </StackPanel>
 

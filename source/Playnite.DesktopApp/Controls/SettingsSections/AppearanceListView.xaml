@@ -29,6 +29,7 @@
             <Slider Width="200" Minimum="0.5" Maximum="10" SmallChange="0.5" LargeChange="0.5"
                     IsSnapToTickEnabled="True" TickFrequency="0.5"
                     HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,10,0"
+                    AutomationProperties.Name="{DynamicResource LOCScrollingSensitivity}"
                     Value="{Binding Settings.ListViewScrollSensitivity}" />
         </StackPanel>
 
@@ -42,6 +43,7 @@
             <Slider Width="200" Minimum="1000000" Maximum="10000000" SmallChange="500000" LargeChange="500000"
                     IsSnapToTickEnabled="True" TickFrequency="500000"
                     HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,10,0"
+                    AutomationProperties.Name="{DynamicResource LOCSmoothScrollingSpeed}"
                     Value="{Binding Settings.ListViewScrollSpeed}" />
         </StackPanel>
     </StackPanel>

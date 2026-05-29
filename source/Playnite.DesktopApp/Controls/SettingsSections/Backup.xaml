@@ -24,6 +24,7 @@
                 <TextBlock Text="{DynamicResource LOCSettingsAutoBackupFrequency}" VerticalAlignment="Center" />
                 <ComboBox pbeh:SelectorBehaviors.EnumSource="{x:Type p:AutoBackupFrequency}"
                           SelectedValue="{Binding Settings.AutoBackupFrequency}"
+                          AutomationProperties.Name="{DynamicResource LOCSettingsAutoBackupFrequency}"
                           VerticalAlignment="Center" Margin="10,0,0,0"/>
             </StackPanel>
 
@@ -31,6 +32,7 @@
                 <TextBlock Text="{DynamicResource LOCSettingsBackupFolder}" VerticalAlignment="Center" />
                 <pctrls:PathSelectionBox Width="400" Margin="10,0,0,0"
                                          ShowDirectorySelector="True" VerticalAlignment="Center"
+                                         AutomationProperties.Name="{DynamicResource LOCSettingsBackupFolder}"
                                          Text="{Binding Settings.AutoBackupDir}"/>
             </StackPanel>
 
@@ -41,6 +43,7 @@
                 <Slider Minimum="0" Maximum="10" IsSnapToTickEnabled="True" TickFrequency="1"
                         Width="200" HorizontalAlignment="Left" VerticalAlignment="Center"
                         Name="SliderRotatingBackup"
+                        AutomationProperties.Name="{DynamicResource LOCSettingsRotatingBackups}"
                         Value="{Binding Settings.RotatingBackups}"/>
             </StackPanel>
 

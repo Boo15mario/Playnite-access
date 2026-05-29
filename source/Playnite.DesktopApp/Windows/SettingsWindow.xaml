@@ -45,7 +45,8 @@
 
         <Border BorderThickness="0,1,0,0" BorderBrush="{DynamicResource WindowPanelSeparatorBrush}"
                 DockPanel.Dock="Left">
-            <TreeView MinWidth="160" BorderThickness="0" ScrollViewer.CanContentScroll="False">
+            <TreeView MinWidth="160" BorderThickness="0" ScrollViewer.CanContentScroll="False"
+                      AutomationProperties.Name="{DynamicResource LOCSettingsWindowTitle}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectedItemChanged" >
                         <prism:InvokeCommandAction Command="{Binding SettingsTreeSelectedItemChangedCommand}" />

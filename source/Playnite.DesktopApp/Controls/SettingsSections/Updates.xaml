@@ -28,18 +28,22 @@
 
         <TextBlock Text="{DynamicResource LOCCheckLibraryUpdates}" />
         <ComboBox pbeh:SelectorBehaviors.EnumSource="{x:Type p:LibraryUpdateCheckFrequency}"
+                  AutomationProperties.Name="{DynamicResource LOCCheckLibraryUpdates}"
                   SelectedValue="{Binding Settings.CheckForLibraryUpdates}" />
 
         <TextBlock Text="{DynamicResource LOCCheckEmulatedLibraryUpdates}" />
         <ComboBox pbeh:SelectorBehaviors.EnumSource="{x:Type p:LibraryUpdateCheckFrequency}"
+                  AutomationProperties.Name="{DynamicResource LOCCheckEmulatedLibraryUpdates}"
                   SelectedValue="{Binding Settings.CheckForEmulatedLibraryUpdates}" />
 
         <TextBlock Text="{DynamicResource LOCCheckAddonUpdates}" />
         <ComboBox pbeh:SelectorBehaviors.EnumSource="{x:Type p:UpdateCheckFrequency}"
+                  AutomationProperties.Name="{DynamicResource LOCCheckAddonUpdates}"
                   SelectedValue="{Binding Settings.CheckForAddonUpdates}" />
 
         <TextBlock Text="{DynamicResource LOCCheckProgramUpdates}" />
         <ComboBox pbeh:SelectorBehaviors.EnumSource="{x:Type p:UpdateCheckFrequency}"
+                  AutomationProperties.Name="{DynamicResource LOCCheckProgramUpdates}"
                   SelectedValue="{Binding Settings.CheckForProgramUpdates}" />
 
         <CheckBox Content="{DynamicResource LOCUpdateNotifyOnlyPatches}"

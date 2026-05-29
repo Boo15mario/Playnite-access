@@ -36,6 +36,7 @@
         <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
             <TextBlock Text="{DynamicResource LOCOpenDirectoryCommand}" VerticalAlignment="Center"/>
             <TextBox Text="{Binding Settings.DirectoryOpenCommand}"
+                     AutomationProperties.Name="{DynamicResource LOCOpenDirectoryCommand}"
                      Margin="10,0,0,0" Width="250"/>
             <TextBlock VerticalAlignment="Center" Margin="10,0,0,0">
                 <Hyperlink NavigateUri="https://github.com/JosefNemec/Playnite/wiki/Custom-directory-open-command"
@@ -51,6 +52,7 @@
                             ContentStringFormat="{}{0} *" VerticalAlignment="Center"/>
             <ComboBox Margin="10,0,0,0" MinWidth="100"
                       SelectedValue="{Binding Settings.AccessibilityInterface}"
+                      AutomationProperties.Name="{DynamicResource LOCSettingsAccessibilityInterface}"
                       pbeh:SelectorBehaviors.EnumSource="{x:Type p:AccessibilityInterfaceOptions}" />
         </StackPanel>
 
@@ -71,6 +73,7 @@
                     Command="{Binding SelectDbFileCommand}"/>
             <TextBox Name="TextDatabase" Text="{Binding Settings.DatabasePath}"
                     DockPanel.Dock="Left" Margin="10,0,10,0"
+                    AutomationProperties.Name="{DynamicResource LOCSettingsDBLocation}"
                     IsReadOnly="True"/>
         </DockPanel>
     </StackPanel>

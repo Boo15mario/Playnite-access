@@ -45,10 +45,12 @@
                                                 <DockPanel>
                                                     <Button Content="6" FontFamily="Marlett" Margin="2,0,2,0"
                                                             DockPanel.Dock="Right" Padding="2" VerticalAlignment="Center"
+                                                            AutomationProperties.Name="Move source down"
                                                             Command="{Binding DataContext.MoveSourceDownCommand, RelativeSource={RelativeSource AncestorType=ToggleButton}}"
                                                             CommandParameter="{Binding}" />
                                                     <Button Content="5" FontFamily="Marlett"
                                                             DockPanel.Dock="Right" Padding="2" VerticalAlignment="Center"
+                                                            AutomationProperties.Name="Move source up"
                                                             Command="{Binding DataContext.MoveSourceUpCommand, RelativeSource={RelativeSource AncestorType=ToggleButton}}"
                                                             CommandParameter="{Binding}" />
                                                     <CheckBox IsChecked="{Binding Enabled}" DockPanel.Dock="Left"

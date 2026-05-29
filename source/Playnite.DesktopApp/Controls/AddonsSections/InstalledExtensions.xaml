@@ -121,6 +121,7 @@
 
         <ListBox Grid.Column="0" Name="ListPlugins" SelectedIndex="0"
                  ScrollViewer.CanContentScroll="False"
+                 AutomationProperties.Name="{DynamicResource LOCExtensions}"
                  ItemsSource="{Binding ActiveInstalledExtensionsList}">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem" BasedOn="{StaticResource {x:Type ListBoxItem}}">

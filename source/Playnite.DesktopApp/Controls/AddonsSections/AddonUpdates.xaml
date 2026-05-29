@@ -44,6 +44,7 @@
                                     BorderBrush="{DynamicResource NormalBorderBrush}">
                                 <DockPanel>
                                     <CheckBox DockPanel.Dock="Left" VerticalAlignment="Top" Margin="5,5,0,0"
+                                              AutomationProperties.Name="{Binding Item.Name}"
                                               IsChecked="{Binding Selected}"/>
                                     <Expander DockPanel.Dock="Right" Background="Transparent" IsExpanded="True">
                                         <Expander.Header>

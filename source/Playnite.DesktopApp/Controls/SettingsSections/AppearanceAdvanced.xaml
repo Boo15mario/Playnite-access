@@ -38,6 +38,7 @@
                                 Margin="0,10,10,10" VerticalAlignment="Center" />
                 <ComboBox SelectedValue="{Binding Settings.DefaultIconSource}"
                           VerticalAlignment="Center" MinWidth="110"
+                          AutomationProperties.Name="{DynamicResource LOCSettingsDefaulIconSource}"
                           Grid.Column="1" Grid.Row="0">
                     <ComboBox.ItemsSource>
                         <x:Array Type="{x:Type sys:Enum}">
@@ -60,6 +61,7 @@
                                 Margin="0,10,10,10" VerticalAlignment="Center" />
                 <ComboBox SelectedValue="{Binding Settings.DefaultCoverSource}"
                           VerticalAlignment="Center"
+                          AutomationProperties.Name="{DynamicResource LOCSettingsDefaulCoverSource}"
                           Grid.Column="1" Grid.Row="1">
                     <ComboBox.ItemsSource>
                         <x:Array Type="{x:Type sys:Enum}">
@@ -81,6 +83,7 @@
                                 Margin="0,10,10,10" VerticalAlignment="Center" />
                 <ComboBox SelectedValue="{Binding Settings.DefaultBackgroundSource}"
                           VerticalAlignment="Center"
+                          AutomationProperties.Name="{DynamicResource LOCSettingsDefaulBackgroundSource}"
                           Grid.Column="1" Grid.Row="2">
                     <ComboBox.ItemsSource>
                         <x:Array Type="{x:Type sys:Enum}">
@@ -106,6 +109,7 @@
                 <TextBlock Text="{DynamicResource LOCSettingsQuicLaunchItems}"
                            VerticalAlignment="Center" Margin="0,0,5,0"/>
                 <pctrls:NullIntNumericBox MinValue="0" MaxValue="99" Width="50"
+                                       AutomationProperties.Name="{DynamicResource LOCSettingsQuicLaunchItems}"
                                        Value="{Binding Settings.QuickLaunchItems}"/>
             </StackPanel>
 
@@ -127,11 +131,16 @@
                     <TextBlock Text="{DynamicResource LOCFontLarger}" Margin="5,0,5,0"/>
                     <TextBlock Text="{DynamicResource LOCFontLargest}" Margin="5,0,5,0"/>
 
-                    <pctrls:NullIntNumericBox Value="{Binding Settings.FontSizeSmall}"/>
-                    <pctrls:NullIntNumericBox Value="{Binding Settings.FontSize}"/>
-                    <pctrls:NullIntNumericBox Value="{Binding Settings.FontSizeLarge}"/>
-                    <pctrls:NullIntNumericBox Value="{Binding Settings.FontSizeLarger}"/>
-                    <pctrls:NullIntNumericBox Value="{Binding Settings.FontSizeLargest}"/>
+                    <pctrls:NullIntNumericBox Value="{Binding Settings.FontSizeSmall}"
+                                              AutomationProperties.Name="{DynamicResource LOCFontSmall}"/>
+                    <pctrls:NullIntNumericBox Value="{Binding Settings.FontSize}"
+                                              AutomationProperties.Name="{DynamicResource LOCFontNormal}"/>
+                    <pctrls:NullIntNumericBox Value="{Binding Settings.FontSizeLarge}"
+                                              AutomationProperties.Name="{DynamicResource LOCFontLarge}"/>
+                    <pctrls:NullIntNumericBox Value="{Binding Settings.FontSizeLarger}"
+                                              AutomationProperties.Name="{DynamicResource LOCFontLarger}"/>
+                    <pctrls:NullIntNumericBox Value="{Binding Settings.FontSizeLargest}"
+                                              AutomationProperties.Name="{DynamicResource LOCFontLargest}"/>
                 </UniformGrid>
 
                 <Button Content="{DynamicResource LOCDefault}" VerticalAlignment="Bottom"
@@ -143,6 +152,7 @@
                                 Margin="0,10,10,10" VerticalAlignment="Center"
                                 ContentStringFormat="{}{0} *"/>
                 <ComboBox Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" MinWidth="100"
+                          AutomationProperties.Name="{DynamicResource LOCSettingsTextRenderingMode}"
                           SelectedValue="{Binding Settings.TextRenderingMode}">
                     <ComboBox.ItemsSource>
                         <x:Array Type="{x:Type sys:Enum}">
@@ -163,6 +173,7 @@
                                 Margin="0,10,10,10" VerticalAlignment="Center"
                                 ContentStringFormat="{}{0} *"/>
                 <ComboBox Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" MinWidth="100"
+                          AutomationProperties.Name="{DynamicResource LOCSettingsTextFormattingMode}"
                           SelectedValue="{Binding Settings.TextFormattingMode}">
                     <ComboBox.ItemsSource>
                         <x:Array Type="{x:Type sys:Enum}">
@@ -193,7 +204,7 @@
                 <TextBlock Text="{DynamicResource LOCAddedLabel}"
                            Margin="0,10,0,0" VerticalAlignment="Top" />
                 <StackPanel Margin="10,5,0,0" MinWidth="150" VerticalAlignment="Top">
-                    <TextBox>
+                    <TextBox AutomationProperties.Name="{DynamicResource LOCAddedLabel}">
                         <TextBox.Text>
                             <Binding Path="Settings.DateTimeFormatAdded.Format"
                                      UpdateSourceTrigger="PropertyChanged" 
@@ -219,7 +230,7 @@
                 <TextBlock Text="{DynamicResource LOCModifiedLabel}"
                            Margin="0,15,0,0" VerticalAlignment="Top" />
                 <StackPanel Margin="10,10,0,0" MinWidth="150" VerticalAlignment="Top">
-                    <TextBox>
+                    <TextBox AutomationProperties.Name="{DynamicResource LOCModifiedLabel}">
                         <TextBox.Text>
                             <Binding Path="Settings.DateTimeFormatModified.Format"
                                      UpdateSourceTrigger="PropertyChanged" 
@@ -244,7 +255,7 @@
                 <TextBlock Text="{DynamicResource LOCGameReleaseDateTitle}"
                            Margin="0,15,0,0" VerticalAlignment="Top" />
                 <StackPanel Margin="10,10,0,0" MinWidth="150" VerticalAlignment="Top">
-                    <TextBox>
+                    <TextBox AutomationProperties.Name="{DynamicResource LOCGameReleaseDateTitle}">
                         <TextBox.Text>
                             <Binding Path="Settings.DateTimeFormatReleaseDate.Format"
                                  UpdateSourceTrigger="PropertyChanged" 
@@ -256,7 +267,7 @@
                             </Binding>
                         </TextBox.Text>
                     </TextBox>
-                    <TextBox Margin="0,5,0,0">
+                    <TextBox Margin="0,5,0,0" AutomationProperties.Name="Partial release date format">
                         <TextBox.Text>
                             <Binding Path="Settings.DateTimeFormatReleaseDate.PartialFormat"
                                      UpdateSourceTrigger="PropertyChanged" 
@@ -284,7 +295,7 @@
                 <TextBlock Text="{DynamicResource LOCRecentActivityLabel}"
                            Margin="0,15,0,0" VerticalAlignment="Top" />
                 <StackPanel Margin="10,10,0,0" MinWidth="150" VerticalAlignment="Top">
-                    <TextBox>
+                    <TextBox AutomationProperties.Name="{DynamicResource LOCRecentActivityLabel}">
                         <TextBox.Text>
                             <Binding Path="Settings.DateTimeFormatRecentActivity.Format"
                                      UpdateSourceTrigger="PropertyChanged" 
@@ -310,7 +321,7 @@
                 <TextBlock Text="{DynamicResource LOCLastPlayedLabel}"
                            Margin="0,15,0,0" VerticalAlignment="Top" />
                 <StackPanel Margin="10,10,0,0" MinWidth="150" VerticalAlignment="Top">
-                    <TextBox>
+                    <TextBox AutomationProperties.Name="{DynamicResource LOCLastPlayedLabel}">
                         <TextBox.Text>
                             <Binding Path="Settings.DateTimeFormatLastPlayed.Format"
                                  UpdateSourceTrigger="PropertyChanged" 
